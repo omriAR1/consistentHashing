@@ -1,38 +1,17 @@
-
-function median(numbers) {
-  const sorted = Array.from(numbers).sort((a, b) => a - b);
-  const middle = Math.floor(sorted.length / 2);
-
-  if (sorted.length % 2 === 0) {
-      return (sorted[middle - 1] + sorted[middle]) / 2;
-  }
-
-  return sorted[middle];
-}
+const percentile = require('stats-percentile');
+const median = require('just-median');
 
 function average(numbers) {
   return [...numbers].reduce((partialSum, a) => partialSum + a, 0)/numbers.length;
 }
 
-function percentile(arr, val) {
-  let count = 0;
-  arr.forEach(v => {
-    if (v < val) {
-      count++;
-    } else if (v == val) {
-      count += 0.5;
-    }
-  });
-  return 100 * count / arr.length;
-}
-
 function getLoadStatistics(servers) {
   // first turn the servers into numbers, load as the value
-  serverLoad = [];
-  nonEmptyServers = 0;
-  nonEmptyLoad = [];
+  const serverLoad = [];
+  let nonEmptyServers = 0;
+  const nonEmptyLoad = [];
   for (let index = 0; index < servers.length; index++) {
-    serverItems = servers[index].getLoad();
+    let serverItems = servers[index].getLoad();
     if (serverItems > 0) {
       nonEmptyServers++;
       nonEmptyLoad.push(serverItems);
