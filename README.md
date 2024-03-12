@@ -5,3 +5,12 @@ Comparing the results of consistent hashing algorthims, given 100 servers and 10
 ![results comparison](https://github.com/omriAR1/consistentHashing/blob/main/ConsistentHashResults.png?raw=true)
 
 I added additional statitiscs than needed, as I beleive it provides more insights into the benefits of adding the 'virtual' servers.
+
+## running the code
+
+install the following dependancies:
+`npm install just-median`
+`npm install stats-percentile`
+
+run the code:
+`node consistentHashes.js`
