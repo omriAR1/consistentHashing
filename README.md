@@ -15,4 +15,5 @@ install the following dependancies:
 `npm install stats-percentile`
 
 run the code:
+
 `node consistentHashes.js`
