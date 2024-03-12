@@ -10,6 +10,7 @@ I added additional statitiscs than needed, as I beleive it provides more insight
 
 install the following dependancies:
 `npm install just-median`
+
 `npm install stats-percentile`
 
 run the code:
