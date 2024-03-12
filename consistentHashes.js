@@ -29,8 +29,7 @@ let randomServers = createRandomServers(amount=100, maxValue=maxNumber);
 
 /*
 Assign the keys to the servers according to the algorithm: a key is assigned to
-smallest server that is larger than the key, wrapping around from [ 232
-− 1] to 0.
+smallest server that is larger than the key, wrapping around from [ 2^32 − 1] to 0.
 */
 
 function assignKey(keyValue, serverList) {
@@ -39,16 +38,15 @@ function assignKey(keyValue, serverList) {
   const onlyValues = [...servers].map(val => val.value);
   const smallestServerValue = Math.min(...onlyValues)
   const smallestServer = servers.find((element) => element.value===smallestServerValue);
-  
 
-  let serversLargerThanKey = servers.filter( it => it.value > keyValue);
+  let serversLargerThanKey = servers.filter( it => parseInt(it.value) > parseInt(keyValue));
   
   // if the key is larger than any of the server values, use the next one
   if ( serversLargerThanKey === undefined || serversLargerThanKey.length === 0) {
     serversLargerThanKey = [smallestServer];
   }
   
-   sortedArray = serversLargerThanKey.sort((a, b) => {a.value - b.value});
+   let sortedArray = serversLargerThanKey.sort((a, b) => a.value - b.value);
    sortedArray[0].assignItem(keyValue);
 }
 
