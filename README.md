@@ -9,6 +9,7 @@ I added additional statitiscs than needed, as I beleive it provides more insight
 ## running the code
 
 install the following dependancies:
+
 `npm install just-median`
 
 `npm install stats-percentile`
